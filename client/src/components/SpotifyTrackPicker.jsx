@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import SpotifyTrackListItem from "./SpotifyTrackListItem";
+import { useTokenContext } from "../providers/TokenProvider";
 
 export default function SpotifyTrackPicker() {
   const [query, setQuery] = useState("");
   const [tracks, setTracks] = useState([]);
   const baseApiUrl = process.env.REACT_APP_BASE_API_URL;
-  const token = localStorage.getItem("token");
+  const tokenContext = useTokenContext();
+  const token = tokenContext.token;
 
   const getTracks = () => {
     axios

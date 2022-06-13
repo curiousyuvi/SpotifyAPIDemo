@@ -27,7 +27,7 @@ router.get("/search", (req, res) => {
       res.json({ tracks: JSON.parse(body).tracks.items });
     } else {
       console.log("error :", err);
-      res.status(200).json({ error: err });
+      res.status(404).json({ error: err });
     }
   });
 });
